@@ -56,16 +56,20 @@
     return 64;
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section {
-    NSLog(@"Will display footer view for section : %d", (int)section);
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.frame.size.height) {
         NSLog(@"上拉刷新");
         
         [self startLoading];
     }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+//    if (scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.frame.size.height) {
+//        NSLog(@"上拉刷新");
+//        
+//        [self startLoading];
+//    }
 }
 
 - (void)updateFooter {
