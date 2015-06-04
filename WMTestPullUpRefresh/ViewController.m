@@ -57,7 +57,7 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.frame.size.height) {
+    if (scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.frame.size.height - CGRectGetHeight(_footer.bounds)) {
         NSLog(@"上拉刷新");
         
         [self startLoading];
